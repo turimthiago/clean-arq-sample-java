@@ -7,6 +7,7 @@ import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,15 +15,20 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+
+import com.clean.sample.cleanarqsample.data.protocols.UserRepository;
+import com.clean.sample.cleanarqsample.data.usecases.DbCreateUser;
 import com.clean.sample.cleanarqsample.domain.databuilder.UserModelDataBuilder;
 import com.clean.sample.cleanarqsample.domain.models.UserModel;
-import com.clean.sample.cleanarqsample.domain.protocols.repositories.UserRepository;
+import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUser;
+import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserRequest;
+import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserResponse;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
 public class CreateUserTest {
 	@InjectMocks
-	private CreateUser sut = new CreateUser();
+	private CreateUser sut = new DbCreateUser();
 	@Mock
 	private UserRepository repository;
 

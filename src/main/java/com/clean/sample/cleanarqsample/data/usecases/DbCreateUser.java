@@ -1,18 +1,21 @@
-package com.clean.sample.cleanarqsample.domain.user;
+package com.clean.sample.cleanarqsample.data.usecases;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import com.clean.sample.cleanarqsample.data.protocols.UserRepository;
 import com.clean.sample.cleanarqsample.domain.models.UserModel;
-import com.clean.sample.cleanarqsample.domain.protocols.repositories.UserRepository;
+import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUser;
+import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserRequest;
+import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserResponse;
 
 @Named
-public class CreateUser {
+public class DbCreateUser implements CreateUser{
 	
 	@Inject
 	private UserRepository repository;
 
 	public CreateUserResponse create(CreateUserRequest request) {
-		System.out.println("CreateUser usecase -> create");
 		UserModel newUser = new UserModel();
 		newUser.setName(request.name);
 		newUser.setPassword(request.password);

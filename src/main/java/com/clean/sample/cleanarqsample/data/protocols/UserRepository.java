@@ -1,4 +1,4 @@
-package com.clean.sample.cleanarqsample.domain.protocols.repositories;
+package com.clean.sample.cleanarqsample.data.protocols;
 
 import com.clean.sample.cleanarqsample.domain.models.UserModel;
 
