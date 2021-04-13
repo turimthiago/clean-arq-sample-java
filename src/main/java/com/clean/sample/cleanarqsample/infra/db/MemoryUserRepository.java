@@ -2,14 +2,13 @@ package com.clean.sample.cleanarqsample.infra.db;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
 import com.clean.sample.cleanarqsample.data.protocols.UserRepository;
 import com.clean.sample.cleanarqsample.domain.models.UserModel;
 import com.clean.sample.cleanarqsample.infra.entities.UserEntity;
 
 @Repository
-public class UserMemoryRepository implements UserRepository{
+public class MemoryUserRepository implements UserRepository{
 	private List<UserEntity> users = new ArrayList<UserEntity>();
 
 	@Override
@@ -20,6 +19,8 @@ public class UserMemoryRepository implements UserRepository{
 		entity.setPassword(user.getPassword());
 		
 		user.setId(entity.getId());
+		
+		this.users.add(entity);
 		
 		return user;
 	}
