@@ -43,6 +43,8 @@ public class MemoryUserRepository implements UserRepository{
 	}
 
 	private List<UserModel> convertList(List<UserEntity> entities) {
-		return entities.stream().map(this::convert).collect(Collectors.toList());
+		 List<UserModel> collect = entities.stream().map(this::convert).collect(Collectors.toList());
+		 System.out.println("convertList "+collect);
+		 return collect;
 	}
 }
