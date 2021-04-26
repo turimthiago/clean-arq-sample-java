@@ -1,17 +1,13 @@
 package com.clean.sample.cleanarqsample.data.usecases;
 
 import java.util.List;
-
 import javax.inject.Inject;
-
 import org.springframework.stereotype.Component;
-
 import com.clean.sample.cleanarqsample.data.protocols.UserRepository;
 import com.clean.sample.cleanarqsample.domain.models.UserModel;
 import com.clean.sample.cleanarqsample.domain.usescases.user.ListUsers;
 import com.clean.sample.cleanarqsample.domain.usescases.user.ListUsersRequest;
 import com.clean.sample.cleanarqsample.domain.usescases.user.ListUsersResponse;
-import com.clean.sample.cleanarqsample.main.config.ListUserWebPresenter;
 import com.clean.sample.cleanarqsample.presenter.user.ListUserPresenter;
 
 @Component
