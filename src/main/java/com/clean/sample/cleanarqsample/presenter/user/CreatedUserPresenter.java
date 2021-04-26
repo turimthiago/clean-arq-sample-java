@@ -6,4 +6,5 @@ public interface CreatedUserPresenter {
 	CreatedUserViewModel getViewModel();
 
 	void present(CreateUserResponse responseModel);
+
 }

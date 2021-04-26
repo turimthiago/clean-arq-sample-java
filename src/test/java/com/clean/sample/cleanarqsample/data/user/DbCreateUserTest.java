@@ -1,4 +1,4 @@
-package com.clean.sample.cleanarqsample.domain.user;
+package com.clean.sample.cleanarqsample.data.user;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
@@ -24,7 +24,7 @@ import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserResponse;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class CreateUserTest {
+public class DbCreateUserTest {
 	@InjectMocks
 	private CreateUser sut = new DbCreateUser();
 	@Mock
