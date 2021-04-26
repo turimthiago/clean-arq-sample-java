@@ -1,14 +1,18 @@
 package com.clean.sample.cleanarqsample.data.user;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -21,6 +25,7 @@ import com.clean.sample.cleanarqsample.domain.models.UserModel;
 import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUser;
 import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserRequest;
 import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserResponse;
+import com.clean.sample.cleanarqsample.presenter.user.CreatedUserPresenter;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -29,6 +34,10 @@ public class DbCreateUserTest {
 	private CreateUser sut = new DbCreateUser();
 	@Mock
 	private UserRepository repository;
+	@Mock
+	private CreatedUserPresenter presenter;
+	@Captor
+	private ArgumentCaptor<UserModel> captor;
 
 	@Test
 	public void shouldThrowIfRespositoryThrows() {
@@ -51,14 +60,15 @@ public class DbCreateUserTest {
 		request.name = userModel.getName();
 		request.password = userModel.getPassword();
 
-		when(repository.save(any(UserModel.class))).thenReturn(new UserModelDataBuilder().aUser().build());
+		when(repository.save(any(UserModel.class))).thenReturn(userModel);
 
 		sut.create(request);
-
-		verify(repository).save(argThat((userArgument) -> {
-			return userArgument.getName().equals(userModel.getName());
-		}));
-
+		
+		verify(repository, times(1)).save(captor.capture());
+		
+		assertNull(captor.getValue().getId());
+		assertEquals(captor.getValue().getName(), userModel.getName());
+		assertEquals(captor.getValue().getPassword(), userModel.getPassword());
 	}
 
 	@Test

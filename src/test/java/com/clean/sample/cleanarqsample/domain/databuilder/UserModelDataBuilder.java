@@ -21,4 +21,5 @@ public class UserModelDataBuilder {
 	public UserModel build() {
 		return this.userModel;
 	}
+
 }
