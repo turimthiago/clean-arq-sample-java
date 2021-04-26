@@ -12,13 +12,14 @@ import com.clean.sample.cleanarqsample.domain.usescases.user.ListUsers;
 import com.clean.sample.cleanarqsample.domain.usescases.user.ListUsersRequest;
 import com.clean.sample.cleanarqsample.domain.usescases.user.ListUsersResponse;
 import com.clean.sample.cleanarqsample.main.config.ListUserWebPresenter;
+import com.clean.sample.cleanarqsample.presenter.user.ListUserPresenter;
 
 @Component
 public class DbListUser implements ListUsers {
 	@Inject
 	private UserRepository userRepository;
 	@Inject
-	private ListUserWebPresenter presenter;
+	private ListUserPresenter presenter;
 
 	@Override
 	public ListUsersResponse list(ListUsersRequest request) {
