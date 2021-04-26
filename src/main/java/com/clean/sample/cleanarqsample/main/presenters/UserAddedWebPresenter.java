@@ -1,4 +1,4 @@
-package com.clean.sample.cleanarqsample.main.config;
+package com.clean.sample.cleanarqsample.main.presenters;
 
 import org.springframework.stereotype.Component;
 import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUserResponse;

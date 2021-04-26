@@ -1,4 +1,4 @@
-package com.clean.sample.cleanarqsample.main.config;
+package com.clean.sample.cleanarqsample.main.presenters;
 
 import java.util.ArrayList;
 import java.util.List;
