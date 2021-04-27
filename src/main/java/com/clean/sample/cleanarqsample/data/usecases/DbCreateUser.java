@@ -20,14 +20,14 @@ public class DbCreateUser implements CreateUser{
 
 	public CreateUserResponse create(CreateUserRequest request) {
 		UserModel newUser = new UserModel();
-		newUser.setName(request.name);
+		newUser.setEmail(request.email);
 		newUser.setPassword(request.password);
 
 		UserModel user = this.repository.save(newUser);
 
 		CreateUserResponse response = new CreateUserResponse();
 		response.id = user.getId();
-		response.name = user.getName();
+		response.name = user.getEmail();
 		
 		this.presenter.present(response);
 

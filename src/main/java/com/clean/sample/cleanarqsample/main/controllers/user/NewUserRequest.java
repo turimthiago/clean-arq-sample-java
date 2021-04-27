@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 public class NewUserRequest {
     @NotBlank
     @NotNull
-	public String name;
+	public String email;
     @NotBlank
     @NotNull
 	public String password;

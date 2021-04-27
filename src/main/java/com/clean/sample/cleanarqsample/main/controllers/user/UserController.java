@@ -36,8 +36,8 @@ public class UserController {
 	@PostMapping
 	public ResponseEntity<CreatedUserViewModel> post(@Valid @RequestBody NewUserRequest request) {
 		CreateUserRequest createRequest = new CreateUserRequest();
-		createRequest.name = request.name;
-		createRequest.password = request.name;
+		createRequest.email = request.email;
+		createRequest.password = request.password;
 
 		this.createUser.create(createRequest);
 

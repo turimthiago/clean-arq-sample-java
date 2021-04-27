@@ -6,7 +6,7 @@ import com.clean.sample.cleanarqsample.presenter.user.CreatedUserPresenter;
 import com.clean.sample.cleanarqsample.presenter.user.CreatedUserViewModel;
 
 @Component
-public class UserAddedWebPresenter implements CreatedUserPresenter {
+public class CreatedUserWebPresenter implements CreatedUserPresenter {
 	private CreatedUserViewModel viewModel;
 
 	@Override
