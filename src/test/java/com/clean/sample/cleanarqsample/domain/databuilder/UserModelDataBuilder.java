@@ -12,7 +12,7 @@ public class UserModelDataBuilder {
 	public UserModelDataBuilder aUser() {
 		this.userModel = new UserModel();
 		this.userModel.setId(1l);
-		this.userModel.setName("Any Name");
+		this.userModel.setEmail("any@mail.com.br");
 		this.userModel.setPassword("any_password");
 		
 		return this;

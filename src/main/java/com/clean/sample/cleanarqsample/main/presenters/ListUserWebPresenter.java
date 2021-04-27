@@ -29,7 +29,7 @@ public class ListUserWebPresenter implements ListUserPresenter {
 	private UserViewModel convert(UserModel model) {
 		UserViewModel view = new UserViewModel();
 		view.id = model.getId();
-		view.name = model.getName();
+		view.email = model.getEmail();
 
 		return view;
 	}

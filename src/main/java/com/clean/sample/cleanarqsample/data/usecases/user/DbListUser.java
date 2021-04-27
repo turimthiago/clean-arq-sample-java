@@ -1,4 +1,4 @@
-package com.clean.sample.cleanarqsample.data.usecases;
+package com.clean.sample.cleanarqsample.data.usecases.user;
 
 import java.util.List;
 import javax.inject.Inject;

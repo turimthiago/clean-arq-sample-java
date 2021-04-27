@@ -15,7 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import com.clean.sample.cleanarqsample.data.protocols.UserRepository;
-import com.clean.sample.cleanarqsample.data.usecases.DbListUser;
+import com.clean.sample.cleanarqsample.data.usecases.user.DbListUser;
 import com.clean.sample.cleanarqsample.domain.databuilder.UserModelDataBuilder;
 import com.clean.sample.cleanarqsample.domain.models.UserModel;
 import com.clean.sample.cleanarqsample.domain.usescases.user.ListUsers;

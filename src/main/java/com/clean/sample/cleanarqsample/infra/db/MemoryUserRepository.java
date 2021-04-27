@@ -17,7 +17,7 @@ public class MemoryUserRepository implements UserRepository{
 	public UserModel save(UserModel user) {
 		UserEntity entity = new UserEntity();
 		entity.setId(1l);
-		entity.setName(user.getName());
+		entity.setEmail(user.getEmail());
 		entity.setPassword(user.getPassword());
 		
 		user.setId(Long.valueOf(this.users.size()+1));
@@ -29,14 +29,13 @@ public class MemoryUserRepository implements UserRepository{
 
 	@Override
 	public List<UserModel> findAll() {
-		System.out.println("teste"+this.users.size());
 		return this.convertList(this.users);
 	}
 	
 	private UserModel convert(UserEntity entity) {
 		UserModel model = new UserModel();
 		model.setId(entity.getId());
-		model.setName(entity.getName());
+		model.setEmail(entity.getEmail());
 		model.setPassword(entity.getPassword());
 		
 		return model;

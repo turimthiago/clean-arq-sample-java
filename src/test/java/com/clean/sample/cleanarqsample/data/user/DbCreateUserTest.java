@@ -19,7 +19,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 import com.clean.sample.cleanarqsample.data.protocols.UserRepository;
-import com.clean.sample.cleanarqsample.data.usecases.DbCreateUser;
+import com.clean.sample.cleanarqsample.data.usecases.user.DbCreateUser;
 import com.clean.sample.cleanarqsample.domain.databuilder.UserModelDataBuilder;
 import com.clean.sample.cleanarqsample.domain.models.UserModel;
 import com.clean.sample.cleanarqsample.domain.usescases.user.CreateUser;
@@ -42,7 +42,7 @@ public class DbCreateUserTest {
 	@Test
 	public void shouldThrowIfRespositoryThrows() {
 		CreateUserRequest request = new CreateUserRequest();
-		request.name = "Any name";
+		request.email = "any@mail.com.br";
 		request.password = "any_password";
 
 		doThrow(RuntimeException.class).when(repository).save(any(UserModel.class));
@@ -57,7 +57,7 @@ public class DbCreateUserTest {
 		UserModel userModel = new UserModelDataBuilder().aUser().build();
 
 		CreateUserRequest request = new CreateUserRequest();
-		request.name = userModel.getName();
+		request.email = userModel.getEmail();
 		request.password = userModel.getPassword();
 
 		when(repository.save(any(UserModel.class))).thenReturn(userModel);
@@ -67,14 +67,14 @@ public class DbCreateUserTest {
 		verify(repository, times(1)).save(captor.capture());
 		
 		assertNull(captor.getValue().getId());
-		assertEquals(captor.getValue().getName(), userModel.getName());
+		assertEquals(captor.getValue().getEmail(), userModel.getEmail());
 		assertEquals(captor.getValue().getPassword(), userModel.getPassword());
 	}
 
 	@Test
 	public void shouldSaveUser() {
 		CreateUserRequest request = new CreateUserRequest();
-		request.name = "Any name";
+		request.email = "any@mail.com.br";
 		request.password = "any_password";
 
 		when(repository.save(any(UserModel.class))).thenReturn(new UserModelDataBuilder().aUser().build());
