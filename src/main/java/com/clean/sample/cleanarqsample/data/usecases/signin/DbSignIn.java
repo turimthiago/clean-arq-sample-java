@@ -14,7 +14,11 @@ public class DbSignIn implements SignIn {
 	@Override
 	public SignInResponse sigin(SignInRequest credentials) {
 		String token = this.tokenManager.signin(credentials.userName);
-		return null;
+		
+		SignInResponse response = new SignInResponse();
+		response.token = token;
+		
+		return response;
 	}
 
 }
